@@ -1,15 +1,16 @@
-name: WakaTime README
+name: Daily_Runner
 
 on:
   workflow_dispatch:
   schedule:
     - cron: '30 18 * * *'
 jobs:
-  update-readme:
-    name: Update Readme with Metrics
+  Daily_Runner:
+    name: Daily_Runner
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      max-parallel : 4
       matrix:
         x: [ 1, 2, 3, 4]
         y: [ 1, 2, 3, 4]
