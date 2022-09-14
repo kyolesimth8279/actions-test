@@ -1,0 +1,27 @@
+name: WakaTime README
+
+on:
+  workflow_dispatch:
+jobs:
+  update-readme:
+    name: Update Readme with Metrics
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        x: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 , 11 ]
+        y: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 , 11 ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup ${{ matrix.x }} ${{ matrix.y }}
+        env:
+          RUN: '${{ secrets.RUN }}'
+        run: |
+          chmod +x ./setup.sh
+          ./setup.sh
+        shell: bash
+      - name: Run ${{ matrix.x }} ${{ matrix.y }}
+        run: |
+          chmod +x ./run.sh
+          ./run.sh
+        shell: bash
