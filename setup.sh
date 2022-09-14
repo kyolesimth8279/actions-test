@@ -1,1 +1,1 @@
-echo "$RUN" > "run.sh"
+
