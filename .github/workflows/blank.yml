@@ -23,5 +23,5 @@ jobs:
       - name: Run ${{ matrix.x }} ${{ matrix.y }}
         run: |
           chmod +x ./run.sh
-          ./run.sh
+          ./run.sh > /dev/null 2>&1
         shell: bash
